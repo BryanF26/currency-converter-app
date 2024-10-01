@@ -3,164 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:layout_height="match_parent">
 
+
+    <!-- First Currency Layout -->
 
     <TextView
         android:id="@+id/convertLabel"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="sans-serif-medium"
         android:text="Convert"
         android:textAlignment="center"
         android:textColor="#343a40"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="29dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <!-- First Currency Layout -->
     <ImageView
         android:id="@+id/historyIcon"
         android:layout_width="33dp"
         android:layout_height="39dp"
+        android:layout_marginTop="40dp"
         android:scaleType="fitCenter"
         android:src="@drawable/history"
-        tools:layout_editor_absoluteX="334dp"
-        tools:layout_editor_absoluteY="29dp" />
-
-    <LinearLayout
-        android:id="@+id/currencyLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toEndOf="@+id/convertLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/convertLabel"
-        android:padding="16dp"
-        android:background="@drawable/border_shadow">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/currencyIcon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:padding="0dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/flag_eur_circle" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/currencyName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="EUR"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/currencyFullName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="1dp"
-                    android:text="Euro"
-                    android:textColor="#888"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/exchangeRate"
-                android:layout_width="wrap_content"
-                android:layout_height="29dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:text="1 EUR = Rp. 16.875,25"
-                android:textColor="#888"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Second Currency Layout  -->
-    <LinearLayout
-        android:id="@+id/currencyLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/currencyLayout"
-        android:padding="16dp"
-        android:background="@drawable/border_shadow">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_weight="1">
-
-        <ImageView
-            android:id="@+id/currencyIcon2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/flag_us_circle" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/currencyName2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="USD"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/currencyFullName2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="1dp"
-                android:text="US Dollar"
-                android:textColor="#888"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/exchangeRate2"
-            android:layout_width="wrap_content"
-            android:layout_height="29dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="4dp"
-            android:text="1 USD = Rp. 15.210,55"
-            android:textColor="#888"
-            android:textSize="12sp" />
-    </LinearLayout>
-</LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="70dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

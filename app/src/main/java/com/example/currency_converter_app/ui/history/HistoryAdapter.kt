@@ -11,9 +11,9 @@ class HistoryAdapter(private val historyList: List<CurrencyRateHistory>) :
     RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     class HistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val currencyText: TextView = view.findViewById(R.id.tvCurrency)
-        val fullNameCurrencyText: TextView = view.findViewById(R.id.tvFullNameCurrency)
-        val rateText: TextView = view.findViewById(R.id.tvRate)
+        val fromCurrencyText: TextView = view.findViewById(R.id.tvFromCurrency)
+        val toCurrencyText: TextView = view.findViewById(R.id.tvToCurrency)
+        val currencyConvertText: TextView = view.findViewById(R.id.tvCurrencyConvert)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -24,9 +24,9 @@ class HistoryAdapter(private val historyList: List<CurrencyRateHistory>) :
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         val history = historyList[position]
-        holder.currencyText.text = history.currency
-        holder.fullNameCurrencyText.text = history.fullNameCurrency
-        holder.rateText.text = history.rate
+        holder.fromCurrencyText.text = history.fromCurrency
+        holder.toCurrencyText.text = history.toCurrency
+        holder.currencyConvertText.text = history.currencyConvert
     }
 
     override fun getItemCount(): Int = historyList.size
