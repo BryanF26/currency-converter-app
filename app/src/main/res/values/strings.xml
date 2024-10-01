@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">currency-converter-app</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Currency Rate</string>
+    <string name="title_dashboard">Currency Converter</string>
+    <string name="title_notifications">History</string>
 
 
 </resources>
