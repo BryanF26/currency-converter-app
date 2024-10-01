@@ -12,7 +12,7 @@
         android:layout_marginRight="8dp" />
 
     <TextView
-        android:id="@+id/currencyTextView"
+        android:id="@+id/currencyCodeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#343A40"

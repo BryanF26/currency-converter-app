@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -17,7 +17,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/amountTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
@@ -25,7 +25,7 @@
         android:textColor="#343A40" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/amountEditText"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginLeft="36dp"
@@ -35,7 +35,8 @@
         android:background="@drawable/border_edittext"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:textAlignment="gravity" />
+        android:paddingStart="12dp"
+        android:gravity="center_vertical|start" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +44,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/fromTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
@@ -53,7 +54,7 @@
             android:textColor="#343A40" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/toTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="36dp"
@@ -72,21 +73,21 @@
         android:layout_marginBottom="18dp">
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/spinnerFrom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
             android:layout_weight="1" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinnerTo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/convertedAmountTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
@@ -102,7 +103,7 @@
         android:layout_marginBottom="24dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/getExchangeRateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Exchange Rate" />
