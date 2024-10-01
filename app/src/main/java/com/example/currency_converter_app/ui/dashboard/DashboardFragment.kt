@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.currency_converter_app.R
@@ -80,6 +81,7 @@ class DashboardFragment : Fragment() {
                     "%.2f %s = %.2f %s",
                     amount, fromCurrency, result, toCurrency
                 )
+                Toast.makeText(requireContext(), "Exchange Successfully!", Toast.LENGTH_SHORT).show()
                 historyViewModel.addCurrencyRateHistory(fromCurrency, toCurrency, convertedAmountTextView.text.toString())
             } else {
                 convertedAmountTextView.text = "Please enter a valid amount"
