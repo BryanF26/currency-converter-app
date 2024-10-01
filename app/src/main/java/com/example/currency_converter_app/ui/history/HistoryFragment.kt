@@ -32,13 +32,16 @@ class HistoryFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Set up ViewModel
-        viewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(HistoryViewModel::class.java)
+
+        // Initialize the adapter with data when available
+        historyAdapter = HistoryAdapter(emptyList())
+        recyclerView.adapter = historyAdapter
 
         // Observe the LiveData from ViewModel
-        viewModel.currencyRateHistory.observe(viewLifecycleOwner, { historyList ->
-            // Initialize the adapter with data when available
-            historyAdapter = HistoryAdapter(historyList)
-            recyclerView.adapter = historyAdapter
-        })
+        viewModel.currencyRateHistory.observe(viewLifecycleOwner) { historyList ->
+            // Update the adapter with new data
+            historyAdapter.updateData(historyList) // Call updateData method
+        }
     }
 }

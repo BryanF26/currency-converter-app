@@ -1,5 +1,6 @@
 package com.example.currency_converter_app.ui.history
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.currency_converter_app.R
 
-class HistoryAdapter(private val historyList: List<CurrencyRateHistory>) :
+class HistoryAdapter(private var historyList: List<CurrencyRateHistory>) :
     RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     class HistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -30,5 +31,11 @@ class HistoryAdapter(private val historyList: List<CurrencyRateHistory>) :
     }
 
     override fun getItemCount(): Int = historyList.size
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(newHistoryList: List<CurrencyRateHistory>) {
+        historyList = newHistoryList
+        notifyDataSetChanged() // Notify the adapter to refresh the view
+    }
 }
 

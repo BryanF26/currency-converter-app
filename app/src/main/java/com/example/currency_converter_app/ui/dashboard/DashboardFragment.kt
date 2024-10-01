@@ -1,6 +1,7 @@
 package com.example.currency_converter_app.ui.dashboard
 
 import DashboardViewModel
+import HistoryViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.example.currency_converter_app.R
 
 class DashboardFragment : Fragment() {
 
+    private lateinit var historyViewModel: HistoryViewModel
     private lateinit var viewModel: DashboardViewModel
     private lateinit var amountEditText: EditText
     private lateinit var convertedAmountTextView: TextView
@@ -34,6 +36,8 @@ class DashboardFragment : Fragment() {
     @SuppressLint("DefaultLocale")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        historyViewModel = ViewModelProvider(requireActivity()).get(HistoryViewModel::class.java)
 
         viewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
 
@@ -76,6 +80,7 @@ class DashboardFragment : Fragment() {
                     "%.2f %s = %.2f %s",
                     amount, fromCurrency, result, toCurrency
                 )
+                historyViewModel.addCurrencyRateHistory(fromCurrency, toCurrency, convertedAmountTextView.text.toString())
             } else {
                 convertedAmountTextView.text = "Please enter a valid amount"
             }
