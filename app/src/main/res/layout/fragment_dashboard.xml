@@ -6,17 +6,6 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="Currency Converter"
-        android:textAlignment="center"
-        android:textColor="#212529"
-        android:textSize="24sp" />
-
-    <TextView
         android:id="@+id/amountTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,12 +91,11 @@
         android:gravity="center"
         android:layout_marginBottom="24dp">
 
-    <Button
-        android:id="@+id/getExchangeRateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Exchange Rate" />
-</LinearLayout>
-
+        <Button
+            android:id="@+id/getExchangeRateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Exchange Rate" />
+    </LinearLayout>
 
 </LinearLayout>
