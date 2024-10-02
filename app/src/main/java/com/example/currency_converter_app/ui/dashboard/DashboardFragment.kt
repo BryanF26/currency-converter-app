@@ -60,6 +60,19 @@ class DashboardFragment : Fragment() {
 
         setSpinnerDefaults(currencyList)
 
+        arguments?.let { bundle ->
+            val fromCurrency = bundle.getString("fromCurrency")
+            val toCurrency = bundle.getString("toCurrency")
+            val rate = bundle.getString("rate")
+
+            // Set spinner selections
+            fromCurrency?.let { setSpinnerSelection(spinnerFrom, it, adapter) }
+            toCurrency?.let { setSpinnerSelection(spinnerTo, it, adapter) }
+
+            // Set converted amount text view with rate
+            convertedAmountTextView.text = rate ?: "Rate not available"
+        }
+
         amountEditText.setText("1")
 
         convertedAmountTextView.text = "1 USD = 15196.90 IDR"
@@ -98,6 +111,13 @@ class DashboardFragment : Fragment() {
         }
         if (idrIndex >= 0) {
             spinnerTo.setSelection(idrIndex)
+        }
+    }
+
+    private fun setSpinnerSelection(spinner: Spinner, currencyCode: String, adapter: CurrencyAdapter) {
+        val position = adapter.getPosition(currencyCode)
+        if (position >= 0) {
+            spinner.setSelection(position)
         }
     }
 }

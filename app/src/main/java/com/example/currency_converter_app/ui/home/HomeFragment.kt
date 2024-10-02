@@ -35,10 +35,10 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         // Observe the LiveData from ViewModel
-        viewModel.currencyRateHome.observe(viewLifecycleOwner, { homeList ->
-            // Initialize the adapter with data when available
-            homeAdapter = HomeAdapter(homeList)
+        viewModel.currencyRateHome.observe(viewLifecycleOwner) { homeList ->
+            // Initialize the adapter with data when available and pass the context
+            homeAdapter = HomeAdapter(homeList,this)
             recyclerView.adapter = homeAdapter
-        })
+        }
     }
 }

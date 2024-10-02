@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.currency_converter_app.R
 
-class CurrencyAdapter(context: Context, currencies: List<Currency>) :
+class CurrencyAdapter(private val context: Context, private val currencies: List<Currency>) :
     ArrayAdapter<Currency>(context, 0, currencies) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -29,5 +29,9 @@ class CurrencyAdapter(context: Context, currencies: List<Currency>) :
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
         return getView(position, convertView, parent)
+    }
+
+    fun getPosition(currencyCode: String):Int{
+        return currencies.indexOfFirst { it.currencyCode == currencyCode }
     }
 }
