@@ -60,6 +60,11 @@ class DashboardFragment : Fragment() {
 
         setSpinnerDefaults(currencyList)
 
+
+        amountEditText.setText("1")
+
+        convertedAmountTextView.text = "1 USD = 15196.90 IDR"
+
         arguments?.let { bundle ->
             val fromCurrency = bundle.getString("fromCurrency")
             val toCurrency = bundle.getString("toCurrency")
@@ -72,10 +77,6 @@ class DashboardFragment : Fragment() {
             // Set converted amount text view with rate
             convertedAmountTextView.text = rate ?: "Rate not available"
         }
-
-        amountEditText.setText("1")
-
-        convertedAmountTextView.text = "1 USD = 15196.90 IDR"
 
         getExchangeRateButton.setOnClickListener {
             val amount = amountEditText.text.toString().toDoubleOrNull()
